@@ -1,3 +1,20 @@
 .book-details{
     padding: 10px;
+    background-color: azure;
+}
+
+.close-details{
+    background-color: teal;
+}
+
+.book-details-title{
+    font-size: 1.5rem;
+}
+
+.book-details hr {
+    height: 2px;
+    width: 300px;
+    border: 0;
+    margin-left: 10px;
+    background-color: brown;
 }

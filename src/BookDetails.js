@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 
 class BookDetails extends Component{
@@ -29,17 +30,22 @@ class BookDetails extends Component{
                                         <option value="none">None</option>
                                     </select>
                                 </div>
-                            </div> 
-                            <div className="book-title">{book.title}</div>
-                            <div className="book-authors">{book.authors && (book.authors.map(a=>`${a}, `))}</div>
+                            </div>
                         </div>
+                        <hr/>
+                        <div className="book-details-title">{book.title}</div>
+                        <div className="">Authors : {book.authors && (book.authors.join(','))}</div>
                         <div>{`Pages : ${book.pageCount}`}</div>
                         <div>{`Published : ${book.publishedDate}`}</div>
                         <div>{`Language : ${book.language}`}</div>
+                        <hr/>
                         <div>{book.description}</div>
                         <div><a href={book.previewLink} target='blank'>Google preview</a></div>
                     </div>
                 )}
+                <div className="open-search">
+                    <Link className='close-search close-details' to='/'>Back to list</Link>
+                 </div>
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BooksList from './BooksList'; 
 import Search from './Search';
@@ -14,20 +13,6 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-    books : []
-  }
-
-  componentDidMount = () => {
-    BooksAPI.getAll()
-            .then(books => {
-              console.log(books);
-              return books;
-            })
-            .then(apiBooks => {
-              this.setState((prevState) => ({
-              books : [...prevState.books, ...apiBooks]
-            }))
-          })
   }
 
   toggleState = ()=>{
@@ -39,12 +24,10 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.books.length !== 0 && 
-        (
+        {
           this.state.showSearchPage 
-            ? <Search books={this.state.books} toggleState={this.toggleState}/> 
-            : <BooksList books={this.state.books} toggleState={this.toggleState}/>
-        )
+            ? <Search toggleState={this.toggleState}/> 
+            : <BooksList toggleState={this.toggleState}/>
         }
       </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 
 class BookDetails extends Component{
@@ -7,9 +7,18 @@ class BookDetails extends Component{
         book : null
     }
 
+    handleSelect = (e) => {
+        BooksAPI.update(this.state.book, e.target.value)
+                .then(res => {                    
+                    this.props.history.push('/')
+                    window.location.reload();
+                })
+    }
+
     componentDidMount = () => {
         BooksAPI.get(this.props.match.params.bookId)
                 .then(apiBook => this.setState({book : apiBook}))
+                .catch(err => console.log(err));
     }
 
     render(){
@@ -22,11 +31,11 @@ class BookDetails extends Component{
                             <div className="book-top">
                                 <div className="book-cover" style={{ width: 384, height: 772, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                 <div className="book-shelf-changer">
-                                    <select onSelect={(e) => console.log(e.target.value)}>
-                                        <option value="move" disabled>Move to...</option>
-                                        <option value="currentlyReading">Currently Reading</option>
-                                        <option value="wantToRead">Want to Read</option>
-                                        <option value="read">Read</option>
+                                    <select onChange={this.handleSelect}>
+                                        <option value="move">Move to...</option>
+                                        <option disabled={this.state.book.shelf === 'currentlyReading'} value="currentlyReading">Currently Reading</option>
+                                        <option disabled={this.state.book.shelf === 'wantToRead'} value="wantToRead">Want to Read</option>
+                                        <option disabled={this.state.book.shelf === 'read'} value="read">Read</option>
                                         <option value="none">None</option>
                                     </select>
                                 </div>
@@ -51,4 +60,4 @@ class BookDetails extends Component{
     }
 }
 
-export default BookDetails;
+export default withRouter(BookDetails);

@@ -22,8 +22,12 @@ class BooksList extends Component{
               
               if(book.shelf === "read")
                 this.setState((prevState) => ({read : [...prevState.read, book]}))
+
+                this.render();
       });
+      console.log(apiBooks);
     })
+    .catch(err => console.log(err))  
   }
 
   render(){
@@ -41,7 +45,7 @@ class BooksList extends Component{
                   <div>
                     <BookShelf bookshelfTitle={'Currently Reading'} shelfBooks={this.state.currentlyReading} />
                     <BookShelf bookshelfTitle={'Want to Read'} shelfBooks={this.state.wantToRead} />   
-                    <BookShelf bookshelfTitle={'Read'} shelfBooks={this.state.read} />                
+                    <BookShelf bookshelfTitle={'Read'} shelfBooks={this.state.read} />               
                   </div>
                 </div>)
             }            

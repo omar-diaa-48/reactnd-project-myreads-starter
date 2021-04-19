@@ -15,6 +15,7 @@ class Search extends Component{
               .then(resultBooks => {
                 this.setState({books : resultBooks})
               })
+              .catch(err => console.log(err))
     }
 
     handleChange = (e) => {
@@ -34,7 +35,7 @@ class Search extends Component{
                     )
                   }
                   <input type="text" 
-                          onKeyDown={e => e.key === 'Enter' ? this.handleSubmit(e.target.value) : null}
+                          onKeyDown={e => e.key === 'Enter' && (this.handleSubmit(e.target.value))}
                           onChange={this.handleChange} 
                           placeholder="Search by title or author, when you finish press enter"/>
   

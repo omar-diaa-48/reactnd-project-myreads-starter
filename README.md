@@ -1,3 +1,20 @@
+# README Updated
+
+start with 'npm install' then 'npm start' and enjoy a book library that really helps you organize your books.
+
+To change the book shelf by choosing a different shelf from the select menu
+    1-currently reading
+    2-want to read
+    3-read
+    4-none => removes it from MyReads
+
+To go to the book details page click from the select menu 'More about this book'
+
+To add a book 
+    1-click on the '+' sign which directs you to the search page 
+    2-use the right search key word then press enter
+    3-change it to one of your shelves where you will be redirected to the home page updated 
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.

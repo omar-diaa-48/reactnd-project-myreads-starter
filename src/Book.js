@@ -13,9 +13,11 @@ const Book = (props) => {
         else
         {
             BooksAPI.update(props.book, e.target.value)
-                    .then((res) => {                        
-                        props.history.push('/')
-                        window.location.reload();
+                    .then((res) => {
+                        if(props.location.pathname === '/')
+                            window.location.reload();
+                        else
+                            props.history.push('/');
                     })
         }         
     }

@@ -22,8 +22,6 @@ class BooksList extends Component{
               
               if(book.shelf === "read")
                 this.setState((prevState) => ({read : [...prevState.read, book]}))
-
-                this.render();
       });
       console.log(apiBooks);
     })

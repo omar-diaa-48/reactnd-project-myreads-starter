@@ -11,7 +11,6 @@ class BookDetails extends Component{
         BooksAPI.update(this.state.book, e.target.value)
                 .then(res => {                    
                     this.props.history.push('/')
-                    window.location.reload();
                 })
     }
 

@@ -7,7 +7,12 @@ class Search extends Component{
 
     state = {
       query : '',
-      books : []
+      books : [],
+      myBooks : []
+    }
+
+    componentDidMount = () => {
+      
     }
 
     handleSubmit = (query) => {
@@ -31,7 +36,7 @@ class Search extends Component{
                   {
                     this.state.books.length > 0 && 
                     (
-                        <BookShelf bookshelfTitle={`Search results for ${this.state.query}`} shelfBooks={this.state.books} /> 
+                        <BookShelf bookshelfTitle={`Search results for ${this.state.query}`} shelfBooks={this.state.books} myBooks={this.props.myBooks}/> 
                     )
                   }
                   <input type="text" 

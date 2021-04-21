@@ -28,14 +28,16 @@ class BookDetails extends Component{
                     <div>
                         <div className='book'>
                             <div className="book-top">
-                                <div className="book-cover" style={{ width: 384, height: 772, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                                { book.imageLinks 
+                                ? <div className="book-cover" style={{ width: 384, height: 772, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                                : <div> No image preview for this book </div>}
                                 <div className="book-shelf-changer">
                                     <select onChange={this.handleSelect}>
                                         <option value="move">Move to...</option>
                                         <option disabled={this.state.book.shelf === 'currentlyReading'} value="currentlyReading">Currently Reading</option>
                                         <option disabled={this.state.book.shelf === 'wantToRead'} value="wantToRead">Want to Read</option>
                                         <option disabled={this.state.book.shelf === 'read'} value="read">Read</option>
-                                        <option value="none">None</option>
+                                        <option disabled={this.state.book.shelf === 'none'} value="none">None</option>
                                     </select>
                                 </div>
                             </div>

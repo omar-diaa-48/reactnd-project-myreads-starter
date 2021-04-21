@@ -8472,7 +8472,7 @@
   optionalDependencies:
     "fsevents" "1.2.4"
 
-"react-test-renderer@^16.0.0-0":
+"react-test-renderer@^16.0.0-0", "react-test-renderer@^16.14.0":
   "integrity" "sha512-L8yPjqPE5CZO6rKsKXRO/rVPiaCOy0tQQJbC+UjPNlobl5mad59lvPjwFsQHTvL03caVDIVr9x9/OSgDe6I5Eg=="
   "resolved" "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.14.0.tgz"
   "version" "16.14.0"
